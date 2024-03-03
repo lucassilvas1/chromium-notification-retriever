@@ -1,0 +1,4 @@
+dist/*
+!dist/proto
+/node_modules
+tests.js

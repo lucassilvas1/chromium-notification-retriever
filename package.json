@@ -1,0 +1,25 @@
+{
+  "name": "chromium-notification-retriever",
+  "version": "1.0.0",
+  "description": "A small TypeScript library for retrieving notifications saved by Chromium-based browsers",
+  "author": "Lucas Silva <lucass_silvas@hotmail.com>",
+  "main": "dist/index.js",
+  "types": "dist/types.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [
+    "chromium",
+    "notifications"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "level": "^8.0.1",
+    "protobufjs": "~7.2.6",
+    "typescript": "^5.3.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  }
+}

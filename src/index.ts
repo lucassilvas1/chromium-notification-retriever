@@ -5,6 +5,8 @@ import * as fs from "fs";
 import { DbNotFoundError } from "./errors";
 import { NotificationInfo } from "./types";
 import { createHash } from "crypto";
+export * from "./types";
+export * from "./extras";
 
 const COPY_DB_ROOT_PATH = path.join(__dirname, "db");
 

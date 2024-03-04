@@ -5,13 +5,13 @@ A TypeScript library for retrieving notifications saved by Chromium-based browse
 ## Installation
 
 ```bash
-npm install chromium-notifications-retriever
+npm install chromium-notification-retriever
 ```
 
 ## Usage
 
 ```javascript
-const { Retriever } = require("chromium-notifications-retriever");
+const { Retriever } = require("chromium-notification-retriever");
 
 // Specify the path to the LevelDB database where your browser stores notification information
 // E.g. "C:/Users/<username>/AppData/Local/Microsoft/Edge/User Data/Default/Platform Notifications"

@@ -1,4 +1,4 @@
-# Chromium Notifications Retriever
+# Chromium Notification Retriever
 
 A TypeScript library for retrieving notifications saved by Chromium-based browsers.
 

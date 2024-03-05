@@ -116,7 +116,7 @@ export class Retriever {
     notificationInfo.notificationData.data = decoder.decode(
       notificationInfo.notificationData.data
     );
-    notificationInfo.url = getUrlFromData(
+    notificationInfo.notificationData.url = getUrlFromData(
       notificationInfo.notificationData.data
     );
 

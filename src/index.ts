@@ -17,7 +17,12 @@ function cleanUpDbDir() {
 }
 
 function isDb(path: string) {
-  return fs.readdirSync(path).some((entry) => entry.split(".")[1] === "ldb");
+  try {
+    return fs.readdirSync(path).some((entry) => entry.split(".")[1] === "ldb");
+  } catch (error) {
+    if (error.code === "ENOENT") return false;
+    throw error;
+  }
 }
 
 function createCopyDbDir(originalPath: string) {
@@ -124,6 +129,7 @@ export class Retriever {
 
   #refresh() {
     if (!this.#db || this.#options.refreshOnRetrieve) {
+      this.#db?.close();
       this.#db = createDb(this.#dbPath);
     }
     if (Retriever.#initPromise) {

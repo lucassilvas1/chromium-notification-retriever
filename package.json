@@ -1,6 +1,6 @@
 {
   "name": "chromium-notification-retriever",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A small TypeScript library for retrieving notifications saved by Chromium-based browsers",
   "author": "Lucas Silva <lucass_silvas@hotmail.com>",
   "main": "dist/index.js",

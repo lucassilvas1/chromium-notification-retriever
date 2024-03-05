@@ -5,6 +5,7 @@ import * as fs from "fs";
 import { DbNotFoundError } from "./errors";
 import { NotificationInfo } from "./types";
 import { createHash } from "crypto";
+import { getUrlFromData } from "./extras";
 export * from "./types";
 export * from "./extras";
 
@@ -115,6 +116,9 @@ export class Retriever {
     notificationInfo.notificationData.data = decoder.decode(
       notificationInfo.notificationData.data
     );
+    notificationInfo.url = getUrlFromData(
+      notificationInfo.notificationData.data
+    );
 
     return notificationInfo as NotificationInfo;
   }
@@ -123,8 +127,8 @@ export class Retriever {
    * Makes a new copy of the notification database with up-to-date notifications.
    * Unnecessary if `refreshOnRetrieve` is enabled.
    */
-  refresh() {
-    this.#refresh();
+  async refresh() {
+    await this.#refresh();
   }
 
   async #refresh() {

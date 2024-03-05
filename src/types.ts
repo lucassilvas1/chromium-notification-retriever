@@ -30,6 +30,7 @@ export type NotificationData = {
   silent?: boolean;
   requireInteraction?: boolean;
   data?: string;
+  url?: string;
   actions?: NotificationAction[];
   /**
    * Stored as offset from the windows epoch in microseconds

@@ -127,13 +127,13 @@ export class Retriever {
     this.#refresh();
   }
 
-  #refresh() {
+  async #refresh() {
     if (!this.#db || this.#options.refreshOnRetrieve) {
-      this.#db?.close();
+      await this.#db?.close();
       this.#db = createDb(this.#dbPath);
     }
     if (Retriever.#initPromise) {
-      return Retriever.#initPromise;
+      return await Retriever.#initPromise;
     }
   }
 

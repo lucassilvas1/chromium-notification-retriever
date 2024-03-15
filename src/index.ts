@@ -128,11 +128,11 @@ export class Retriever {
    * Unnecessary if `refreshOnRetrieve` is enabled.
    */
   async refresh() {
-    await this.#refresh();
+    await this.#refresh(true);
   }
 
-  async #refresh() {
-    if (!this.#db || this.#options.refreshOnRetrieve) {
+  async #refresh(refresh: boolean) {
+    if (!this.#db || refresh) {
       await this.#db?.close();
       this.#db = createDb(this.#dbPath);
     }
@@ -160,8 +160,8 @@ export class Retriever {
    * @param limit Maximum number of notifications to retrieve
    * @returns Array of notifications
    */
-  async retrieve(limit?: number) {
-    await this.#refresh();
+  async retrieve(limit?: number, refresh = this.#options.refreshOnRetrieve) {
+    await this.#refresh(refresh);
 
     const result = [];
 
@@ -176,11 +176,10 @@ export class Retriever {
 
   /**
    * Retrieves one notification by its key (not `notificationId`)
-   * @param key
    * @returns A notification, if one exists with that key, or `undefined` otherwise
    */
-  async get(key: string) {
-    await this.#refresh();
+  async get(key: string, refresh = this.#options.refreshOnRetrieve) {
+    await this.#refresh(refresh);
     try {
       const value = await this.#db!.get(key);
       return Retriever.#decode(key, value);
